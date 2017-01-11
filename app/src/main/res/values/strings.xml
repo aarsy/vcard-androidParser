@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EZ-Vcard-Android</string>
+    <string name="please_select_a_file">Select a backup file</string>
+    <string name="no_vcf_file_present">No vcf (contact\'s backup) file currently present in your device.</string>
+    <string name="file_name_text">File name</string>
+    <string name="file_path_text">File path</string>
+    <string name="you_need_to_allow_access_to_ext_storage">Allow access to external storage</string>
+    <string name="dialog_google_account_email_text">Email address</string>
+    <string name="dialog_google_account_text">Google account</string>
+    <string name="dialog_mobile_phone_text">Device</string>
+    <string name="dialog_sim_card1_text">SIM card</string>
+    <string name="allow_access_to_write_contacts">You need to allow access to write contacts</string>
+</resources>
