@@ -1,50 +1,65 @@
-# ez-vcard-android
+# vcard-androidParser
 
-Maps the Android vCard API to the [ez-vcard](http://github.com/mangstadt/ez-vcard) API.
+This is an android library which converts [ez-vcard](http://github.com/mangstadt/ez-vcard) `VCard` object into appropriate Android compatible version so that it can be used to read vcard files easily in android platform
 
-Converts an [ez-vcard](http://github.com/mangstadt/ez-vcard) `VCard` object into the appropriate Android data fields, so it can be added to an Android user's contact list.
+------    
 
-#Code Sample
+#Download    
+###Using Gradle- under dependencies section:   
+ 
+    compile 'com.github.aarsy.vcard-androidParser:vcard-androidParser:1.0.0'
 
-```java
-File vcardFile = ...
-VCardReader reader = null;
-try {
-  reader = new VCardReader(vcardFile);
-  reader.registerScribe(new AndroidCustomFieldScribe());
+### or Using Maven:
 
-  ContactOperations operations = new ContactOperations(getApplicationContext());
-  VCard vcard = null;
-  while ((vcard = reader.readNext()) != null) {
-      operations.insertContact(vcard);
-  }
-} finally {
-  reader.close();
-}
-```
+    <dependency>
+        <groupId>com.github.aarsy.vcard-androidParser</groupId>
+        <artifactId>vcard-androidParser</artifactId>
+        <version>1.0.0</version>
+        <type>pom</type>
+    </dependency>
 
-#Screenshots<br>
+------
+
+#Documentation
+
+###Reading a vcard or vcf file
+  
+    File vcardFile = new File(filePath);
+    VCardReader reader = null;
+    try {
+      reader = new VCardReader(vcardFile);
+      reader.registerScribe(new AndroidCustomFieldScribe());
+
+      ContactOperations operations = new ContactOperations(context, account_name, account_type);
+      
+      //insert contacts with specific account_name and their types. For example:
+      //both account_name=null and account_type=null if you want to insert contacts into phone
+      //you can also pass other accounts
+      
+      VCard vcard = null;
+      while ((vcard = reader.readNext()) != null) {
+          operations.insertContact(vcard);
+      }
+    }catch (Exception e) {
+       e.printStackTrace();
+    }finally {
+      closeQuietly(reader);
+    }
+    
+    See sample for more details..
+
+------    
+
+#Sample Screenshots<br>
 <img src="/Screenshots/Screenshot1.png" width="40%" height=90%> | <img src="/Screenshots/Screenshot2.png" width="40%" height=90%>
-<br>
-#Download
 
-A downloadable JAR file does not exist yet.  You can either build the project yourself, or copy and paste the code into your project (please leave the copyright notice in the source code if you choose the latter option).
+------
 
-#Development Environment Setup Instructions
+#Compatibility
 
-If you are not using an Android-enabled IDE, follow these instructions so you can get the project to a point where you can build it.
+**Minimum Android SDK**: This library requires a minimum API level of **10**.    
 
- * Go to https://developer.android.com/sdk/index.html
- * Click on "View All Downloads and Sizes"
- * Download the appropriate file for your OS in the "SDK Tools Only" table.
- * Unzip/install the file to a location of your choice.
- * Run the "tools/android" script in the installation to open the Android SDK Manager.
- * Install the the following packages (if some of these aren't in the list, install what you can, then restart the SDK Manager to see if they appear):
-  * Tools -> Android SDK Tools (latest version)
-  * Tools -> Android SDK Platform-tools (latest version)
-  * Tools -> Android SDK Build-tools (version 19.0.3)
-  * Android 4.4.2 (API 19) -> SDK Platform
-  * Extras -> Android Support Library (latest version)
-  * Extras -> Android Support Repository (latest version)
- * Open the "local.properties" file in the root of the Android Mapper project, change the "sdk.dir" property to point to where you unzipped/installed the SDK Tools. 
- * Run `./gradlew build` to build the application.
+#Special thanks to
+
+   [Mike Angstadt](https://github.com/mangstadt)
+
