@@ -27,7 +27,7 @@ ext {
 }
 
 repositories {
-        mavenCentral()
+    mavenCentral()
 }
 
 android {
@@ -50,7 +50,7 @@ android {
 
 
 dependencies {
-    compile ('com.googlecode.ez-vcard:ez-vcard:0.10.1'){
+    compile('com.googlecode.ez-vcard:ez-vcard:0.10.1') {
         exclude group: 'org.jsoup'
         exclude group: 'org.freemarker'
         exclude group: 'com.fasterxml.jackson.core'
@@ -59,6 +59,7 @@ dependencies {
 }
 
 group = publishedGroupId                               // Maven Group ID for the artifact
+
 
 install {
     repositories.mavenInstaller {
@@ -92,11 +93,13 @@ install {
                     connection gitUrl
                     developerConnection gitUrl
                     url siteUrl
+
                 }
             }
         }
     }
 }
+
 
 version = libraryVersion
 
@@ -109,6 +112,11 @@ if (project.hasProperty("android")) { // Android libraries
     task javadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+    afterEvaluate {
+        javadoc.classpath += files(android.libraryVariants.collect { variant ->
+            variant.javaCompile.classpath.files
+        })
     }
 } else { // Java libraries
     task sourcesJar(type: Jar, dependsOn: classes) {
