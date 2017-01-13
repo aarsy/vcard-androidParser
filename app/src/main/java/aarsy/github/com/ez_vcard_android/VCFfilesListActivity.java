@@ -1,4 +1,4 @@
-package aarsy.gitbub.com.ez_vcard_android;
+package aarsy.github.com.ez_vcard_android;
 
 import android.Manifest;
 import android.accounts.Account;

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="aarsy.gitbub.com.ez_vcard_android">
+    package="aarsy.github.com.ez_vcard_android">
 
 
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />

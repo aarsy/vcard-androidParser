@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EZ-Vcard-Android.iml" filepath="$PROJECT_DIR$/EZ-Vcard-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ezvcard-android/ezvcard-android.iml" filepath="$PROJECT_DIR$/ezvcard-android/ezvcard-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vcard-androidParser/vcard-androidParser.iml" filepath="$PROJECT_DIR$/vcard-androidParser/vcard-androidParser.iml" />
     </modules>
   </component>
 </project>

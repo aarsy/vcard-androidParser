@@ -1,4 +1,4 @@
-package aarsy.gitbub.com.ez_vcard_android;
+package aarsy.github.com.ez_vcard_android;
 
 /**
  * Created by abhay yadav on 01-Jan-17.

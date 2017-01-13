@@ -29,6 +29,6 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
     compile 'com.android.support:support-v13:25.1.0'
-    compile project(':ezvcard-android')
+    compile project(':vcard-androidParser')
     testCompile 'junit:junit:4.12'
 }

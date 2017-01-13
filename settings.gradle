@@ -1,1 +1,1 @@
-include ':app', ':ezvcard-android'
+include ':app', ':vcard-androidParser'
